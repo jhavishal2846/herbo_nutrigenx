@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* ─── HERBO NUTRIGENX — Design System ───────────────────────────────────────
+   Editorial wellness platform. Brand palette drawn from the logo:
+   forest-green wordmark + lime-green leaf accent + DNA helix.
+─────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ── Brand: Forest greens (HERBO wordmark) ── */
+  --color-primary:          #1F7A3D;   /* deep herbal forest */
+  --color-primary-dark:     #155A2C;
+  --color-primary-light:    #2E9B52;
+  --color-primary-xlight:   #E2F1E0;
+  --color-primary-50:       #F1F8EF;
+
+  /* ── Accent: Lime/leaf green (NUTRIGENX wordmark) ── */
+  --color-lime:             #8BC53F;
+  --color-lime-dark:        #6FA82E;
+  --color-lime-light:       #A8D762;
+  --color-lime-xlight:      #EAF5D7;
+
+  /* ── CTA uses lime so buttons "pop" against forest text ── */
+  --color-cta:              #8BC53F;
+  --color-cta-dark:         #6FA82E;
+  --color-cta-light:        #A8D762;
+
+  /* ── Earthy warm secondary (herbal tea, turmeric) ── */
+  --color-warm:             #D49E4A;
+  --color-warm-dark:        #B17F2E;
+  --color-warm-light:       #E8C381;
+
+  /* ── Surfaces ── */
+  --color-bg:               #FBFAF4;   /* warm cream / paper */
+  --color-surface:          #FFFFFF;
+  --color-surface-raised:   #F4F2E9;
+  --color-surface-dark:     #0E2418;   /* deep forest night */
+  --color-dark-forest:      #06170E;
+
+  /* ── Text ── */
+  --color-ink:              #142318;   /* nearly black, faint green tint */
+  --color-ink-muted:        #3D5546;
+  --color-ink-subtle:       #7B8C81;
+
+  /* ── Borders ── */
+  --color-border:           #E1DDD0;
+  --color-border-strong:    #BFB7A4;
+
+  /* ── Functional ── */
+  --color-success:          #16A34A;
+  --color-warning:          #D49E4A;
+  --color-error:            #DC2626;
+
+  /* ── Typography ── */
+  --font-display: Fraunces, Cambria, Georgia, serif;
+  --font-sans:    Inter, system-ui, -apple-system, sans-serif;
+  --font-mono:    ui-monospace, Consolas, monospace;
+
+  /* ── Type scale ── */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-5xl:   3rem;
+  --text-6xl:   3.75rem;
+  --text-7xl:   4.5rem;
+
+  /* ── Radii ── */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-3xl:  2rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm:    0 1px 2px 0 rgb(20 35 24 / 0.05);
+  --shadow-md:    0 4px 6px -1px rgb(20 35 24 / 0.08), 0 2px 4px -2px rgb(20 35 24 / 0.08);
+  --shadow-lg:    0 10px 20px -3px rgb(20 35 24 / 0.10), 0 4px 8px -4px rgb(20 35 24 / 0.08);
+  --shadow-xl:    0 20px 35px -5px rgb(20 35 24 / 0.12), 0 10px 14px -6px rgb(20 35 24 / 0.10);
+  --shadow-leaf:  0 8px 24px -4px rgb(139 197 63 / 0.35);
+  --shadow-forest:0 8px 24px -4px rgb(31 122 61 / 0.30);
+
+  /* ── Motion ── */
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo:   cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-inout:     cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast:  150ms;
+  --duration-base:  250ms;
+  --duration-slow:  400ms;
+  --duration-page:  500ms;
+}
+
+/* ─── Reset & base ──────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  transition: top 200ms;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline: none; }
+
+::selection {
+  background-color: var(--color-lime-xlight);
+  color: var(--color-primary-dark);
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-surface-raised); }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-light); }
+
+/* ─── Layout utilities ──────────────────────────────────────────────────── */
+
+.container-wide {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px)  { .container-wide { padding-inline: 2.5rem; } }
+@media (min-width: 1280px) { .container-wide { padding-inline: 3rem; } }
+
+.container-narrow {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) { .container-narrow { padding-inline: 2rem; } }
+
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+/* ─── Botanical / organic pattern backgrounds ───────────────────────────── */
+
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8C28 18 22 30 26 46c8-2 16-8 20-18 4 10 12 16 20 18-2-16-8-28-26-38z' stroke='%231F7A3D' stroke-opacity='0.06' stroke-width='1'/%3E%3Ccircle cx='10' cy='70' r='1.5' fill='%238BC53F' fill-opacity='0.18'/%3E%3Ccircle cx='70' cy='15' r='1.5' fill='%238BC53F' fill-opacity='0.18'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(31,122,61,0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.helix-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='80' viewBox='0 0 40 80' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath d='M5 0 Q20 20 35 0 M5 20 Q20 40 35 20 M5 40 Q20 60 35 40 M5 60 Q20 80 35 60' stroke='%238BC53F' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 40px 80px;
+}
+
+/* ─── Section bg utilities ──────────────────────────────────────────────── */
+
+.section-dark   { background-color: var(--color-surface-dark); }
+.section-cream  { background-color: var(--color-bg); }
+.section-paper  { background-color: var(--color-surface-raised); }
+
+/* ─── Animations ────────────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes drift {
+  0%   { transform: translateX(0) translateY(0); }
+  33%  { transform: translateX(8px) translateY(-6px); }
+  66%  { transform: translateX(-4px) translateY(8px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(2deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-float     { animation: float 6s ease-in-out infinite; }
+.animate-drift     { animation: drift 9s ease-in-out infinite; }
+.animate-sway      { animation: sway 5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 24s linear infinite; }
+
+/* ─── Article prose styling ─────────────────────────────────────────────── */
+
+.prose-herbal {
+  color: var(--color-ink-muted);
+  font-size: 1.0625rem;
+  line-height: 1.78;
+}
+.prose-herbal h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--color-ink);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+.prose-herbal h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.375rem;
+  color: var(--color-ink);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-herbal p { margin-bottom: 1.25rem; }
+.prose-herbal a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-lime);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color 150ms;
+}
+.prose-herbal a:hover { color: var(--color-primary-dark); }
+.prose-herbal ul, .prose-herbal ol { margin: 1rem 0 1.5rem 1.25rem; }
+.prose-herbal ul { list-style: none; padding-left: 0; }
+.prose-herbal ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-herbal ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-lime);
+}
+.prose-herbal ol > li { margin-bottom: 0.5rem; padding-left: 0.5rem; }
+.prose-herbal blockquote {
+  border-left: 4px solid var(--color-lime);
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-ink);
+}
+.prose-herbal strong { color: var(--color-ink); font-weight: 600; }
+.prose-herbal img { border-radius: var(--radius-xl); margin: 2rem 0; }
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
