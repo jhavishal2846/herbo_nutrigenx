@@ -166,18 +166,17 @@ function HeroSection() {
         {/* Headline */}
         <h1 className="font-display font-semibold text-white leading-[0.92] mb-8 max-w-5xl text-[3.25rem] sm:text-[4rem] lg:text-[5.25rem] xl:text-[6rem] tracking-[-0.02em]">
           <span className="block">
-            <WordReveal text="The science" />
+            <WordReveal text="Genes to" />
           </span>
           <span className="block">
-            <WordReveal text="of feeling" delay={0.18} />{' '}
             <motion.span
               initial={{ opacity: 0, y: '0.5em', skewY: 6 }}
               animate={{ opacity: 1, y: 0, skewY: 0 }}
-              transition={{ duration: 1, delay: 0.65, ease: EASE }}
+              transition={{ duration: 1, delay: 0.45, ease: EASE }}
               className="inline-block italic text-lime"
               style={{ fontFeatureSettings: '"ss01"' }}
             >
-              alive.
+              Genius.
             </motion.span>
           </span>
         </h1>
@@ -270,7 +269,7 @@ function HeroCTA({
       whileTap={{ scale: 0.96 }}
       className={`group inline-flex items-center gap-2.5 px-7 py-4 rounded-full text-sm font-bold transition-colors duration-200 ${
         primary
-          ? 'bg-lime text-primary-dark hover:bg-lime-light'
+          ? 'bg-primary text-white hover:bg-primary-dark'
           : 'border border-white/25 text-white hover:bg-white/10'
       }`}
     >
@@ -741,7 +740,7 @@ function NewsletterSection() {
                   <motion.button
                     type="submit"
                     whileTap={{ scale: 0.96 }}
-                    className="px-7 py-4 rounded-full bg-lime text-primary-dark text-sm font-bold hover:bg-lime-light transition-colors whitespace-nowrap"
+                    className="px-7 py-4 rounded-full bg-white text-primary text-sm font-bold hover:bg-white/90 transition-colors whitespace-nowrap"
                   >
                     Subscribe
                   </motion.button>

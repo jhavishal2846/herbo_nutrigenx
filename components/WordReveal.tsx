@@ -59,7 +59,11 @@ export default function WordReveal({
             key={i}
             aria-hidden
             className="inline-block overflow-hidden align-baseline"
-            style={{ marginRight: '0.28em' }}
+            style={{
+              marginRight: '0.28em',
+              paddingBottom: '0.22em',
+              marginBottom: '-0.22em',
+            }}
           >
             <motion.span
               variants={child}

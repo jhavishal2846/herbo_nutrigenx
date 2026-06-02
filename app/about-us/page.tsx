@@ -278,7 +278,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-lime text-primary-dark text-sm font-bold hover:bg-lime-light transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary-dark transition-colors"
               >
                 Browse the library
               </Link>
