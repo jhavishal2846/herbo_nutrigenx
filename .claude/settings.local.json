@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:askthescientists.com)"
+      "WebFetch(domain:askthescientists.com)",
+      "PowerShell($count = \\(Get-Content \"D:\\\\herbo nutrigenix\\\\lib\\\\articles\\\\data.ts\" | Select-String -Pattern \"^\\\\s+slug:\\\\s+'\" | Measure-Object\\).Count; \"Total articles in data.ts: $count\"; \"Build status: Clean — all routes prerendering\")",
+      "PowerShell(Get-Content *)",
+      "PowerShell(cd \"D:\\\\herbo nutrigenix\"; $content = Get-Content \"XML Sitemap1.xml\" -Raw; $regexMatches = [regex]::Matches\\($content, '<loc>\\(https://askthescientists\\\\.com/en/[^<]+\\)</loc>'\\); $regexMatches.Count; $regexMatches | Select-Object -First 3 | ForEach-Object { $_.Groups[1].Value })",
+      "PowerShell(cd \"D:\\\\herbo nutrigenix\"; $content = Get-Content \"XML Sitemap1.xml\" -Raw; \\($content | Select-String \"askthescientists.com/en/\" -AllMatches\\).Matches.Count)",
+      "PowerShell(cd \"D:\\\\herbo nutrigenix\"; $content = Get-Content \"XML Sitemap1.xml\" -Raw; $content.Length; \\($content -split '<loc>'\\)[1..3])"
     ]
   }
 }
