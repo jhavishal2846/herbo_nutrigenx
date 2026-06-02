@@ -521,8 +521,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/contact-us"
-                  className="inline-flex items-center px-4 py-2 rounded-full bg-cta text-white text-sm font-semibold hover:bg-cta-dark active:scale-95 transition-all duration-150"
-                  style={{ boxShadow: '0 4px 12px -2px rgba(139,197,63,0.45)' }}
+                  className="inline-flex items-center px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary-dark active:scale-95 transition-colors duration-150"
                 >
                   Contact
                 </Link>
