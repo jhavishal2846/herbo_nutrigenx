@@ -166,7 +166,7 @@ function HeroSection() {
         {/* Headline */}
         <h1 className="font-display font-semibold text-white leading-[0.92] mb-8 max-w-5xl text-[3.25rem] sm:text-[4rem] lg:text-[5.25rem] xl:text-[6rem] tracking-[-0.02em]">
           <span className="block">
-            <WordReveal text="Genes to" />
+            <WordReveal text="Gene to" />
           </span>
           <span className="block">
             <motion.span
