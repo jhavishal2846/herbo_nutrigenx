@@ -188,8 +188,7 @@ function HeroSection() {
           transition={{ duration: 0.7, ease: EASE, delay: 0.85 }}
           className="max-w-xl text-lg text-white/65 leading-relaxed mb-14"
         >
-          Evidence-based articles on nutrition, sleep, immunity and cellular health — written for
-          curious humans, grounded in the work of scientists.
+        Integrated approach to holistic health management with 5 in 1 synergy
         </motion.p>
 
         {/* CTAs */}
